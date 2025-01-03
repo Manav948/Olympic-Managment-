@@ -1,0 +1,71 @@
+$primary-color: #4CAF50;
+$secondary-color: #2E8B57;
+$background-gradient: linear-gradient(135deg, #6b8e23, #2e8b57);
+$animation-duration: 1s;
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: $background-gradient;
+  color: white;
+}
+
+.dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  animation: fadeIn $animation-duration ease-in-out;
+}
+
+.athlete-card {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 500px;
+  width: 100%;
+  animation: slideUp $animation-duration ease-in-out;
+}
+
+.athlete-card img {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  margin-right: 20px;
+  animation: rotateImage $animation-duration ease-in-out;
+}
+
+.athlete-details {
+  flex: 1;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+}
+
+span {
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { transform: translateY(50px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes rotateImage {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

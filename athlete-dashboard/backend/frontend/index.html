@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athlete Dashboard</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <div class="dashboard">
+        <section class="athlete-profile">
+            <div class="athlete-card">
+                <img id="athlete-img" src="images/p1.png" alt="Athlete Profile Picture">
+                <h2 id="athlete-name">John Doe</h2>
+                <p>Sport: <span id="athlete-sport">Basketball</span></p>
+                <p>Age: <span id="athlete-age">24</span></p>
+                <p>Height: <span id="athlete-height">6'3"</span></p>
+                <p>Weight: <span id="athlete-weight">190 lbs</span></p>
+            </div>
+        </section>
+
+        <section class="performance-section">
+            <h2>Performance Overview</h2>
+            <canvas id="performance-chart"></canvas>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('performance-chart').getContext('2d');
+        const performanceChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Speed', 'Strength', 'Stamina', 'Flexibility'],
+                datasets: [{
+                    label: 'Performance',
+                    data: [80, 90, 70, 85],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
