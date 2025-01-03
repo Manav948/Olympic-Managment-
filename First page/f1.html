@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.png" type="image/png">
+
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css?v=1.0">
+
+    <title>Olympic Hub Management | Code_Wars_Official</title>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <a href="login/index.html">
+        <header class="header" id="header">
+            <button class="B1" id="loginButton">Log in</button>
+    </a>
+    <nav class="nav container">
+        <a href="#" class="nav__logo">
+            <img src="https://olympics.com/images/static/b2p-images/logo_color.svg" alt="Olympic Logo">
+        </a>
+
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
+                <li class="nav__item"><a href="#athletes" class="nav__link">Athletes</a></li>
+                <li class="nav__item"><a href="#events" class="nav__link">Events</a></li>
+                <li class="nav__item"><a href="#schedule" class="nav__link">Schedule</a></li>
+                <li class="nav__item"><a href="#results" class="nav__link">Results</a></li>
+            </ul>
+
+            <!-- Close Button
+                    <div class="nav__close" id="nav-close">
+                        <i class="ri-close-line"></i>
+                    </div>
+                </div> -->
+
+            <!-- Toggle Button -->
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-apps-2-line"></i>
+            </div>
+    </nav>
+    <a href="login/index.html">
+
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Home Section -->
+            <section class="home section" id="home">
+                <h1 class="home__title">Welcome to the Olympic Hub</h1>
+                <img src="images/L1.jpg" alt="">
+            </section>
+
+            <!-- Athletes Section -->
+            <section class="athletes section" id="athletes">
+                <div class="athletes__container container grid">
+                    <h2 class="section__title">Featured Athletes</h2>
+                    <p class="athletes__description">Discover the best athletes from around the world competing in this
+                        year's Olympic Games.</p>
+
+                    <!-- Athlete Cards -->
+                    <div class="athlete-card left">
+                        <img src="images/M1.png" alt="Athlete Image" class="athlete__image">
+                        <h3 class="athlete__name">Athlete 1 - Basketball</h3>
+                        <p class="athlete__details">Country: USA | Sport: Basketball</p>
+                    </div>
+
+                    <div class="athlete-card right">
+                        <h3 class="athlete__name">Athlete 2 - Track and Field</h3>
+                        <img src="images/M2.png" alt="Athlete Image" class="athlete__image">
+                        <p class="athlete__details">Country: Canada | Sport: Track and Field</p>
+                    </div>
+
+                    <!-- Additional athlete cards can be added here -->
+                </div>
+            </section>
+
+
+            <!-- Events Section -->
+            <section class="events section" id="events">
+                <div class="events__container container grid">
+                    <h2 class="section__title">Upcoming Olympic Events</h2>
+                    <p class="events__description">Check out the different events happening throughout the competition.
+                    </p>
+
+                    <!-- Event Cards -->
+                    <div class="event-card">
+                        <h3 class="event__name">100m Sprint</h3>
+                        <p class="event__details">Category: Track and Field | Date: 25th July 2025</p>
+                    </div>
+
+                    <div class="event-card">
+                        <h3 class="event__name">Swimming Finals</h3>
+                        <p class="event__details">Category: Swimming | Date: 27th July 2025</p>
+                    </div>
+
+                    <!-- Additional event cards can be added here -->
+                </div>
+            </section>
+
+
+            <!-- Results Section -->
+            <section class="results section" id="results">
+                <div class="results__container container grid">
+                    <h2 class="section__title">Olympic Results</h2>
+                    <p class="results__description">View the results of the Olympic events and celebrate the winners.
+                    </p>
+
+                    <!-- Result Cards -->
+                    <div class="result-card">
+                        <h3 class="result__event">100m Sprint</h3>
+                        <p class="result__winner">Winner: Athlete 1 (USA) - Time: 9.58s</p>
+                    </div>
+
+                    <div class="result-card">
+                        <h3 class="result__event">Swimming Finals</h3>
+                        <p class="result__winner">Winner: Athlete 2 (Canada) - Time: 56.74s</p>
+                    </div>
+
+                    <!-- Additional result cards can be added here -->
+                </div>
+            </section>
+            
+        </main>
+
+        <!-- Footer Section -->
+        <footer class="footer">
+            <div class="footer__container container">
+                <a href="#" class="footer__logo">Olympic Hub</a>
+
+                <!-- Social Media Links -->
+                <ul class='footer__social'>
+                    <li><a href='https://www.facebook.com/' target='_blank' aria-label='Facebook'
+                            rel='noopener noreferrer'><i class='ri-facebook-fill'></i></a></li>
+                    <li><a href='https://www.instagram.com/' target='_blank' aria-label='Instagram'
+                            rel='noopener noreferrer'><i class='ri-instagram-fill'></i></a></li>
+                    <li><a href='https://www.twitter.com/' target='_blank' aria-label='Twitter'
+                            rel='noopener noreferrer'><i class='ri-twitter-fill'></i></a></li>
+                </ul>
+            </div>
+        </footer>
+
+        <form action="athlete-dashboard/index.html" method="get">
+            <!-- Form on Third Page -->
+          
+
+            <script>
+                document.getElementById('submit-button').addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    // Redirect to the athlete dashboard page
+                    window.location.href = "athlete-dashboard/index.html";
+                });
+            </script>
+
+            <!-- JavaScript Files -->
+            <script src='script.js'></script>
+            <!-- Chatbase Integration Script -->
+            <<script>
+                (function(){
+                if(!window.chatbase || window.chatbase("getState") !== "initialized") {
+                window.chatbase = (...arguments) => {
+                if(!window.chatbase.q) {
+                window.chatbase.q = [];
+                }
+                window.chatbase.q.push(arguments);
+                };
+                window.chatbase = new Proxy(window.chatbase, {
+                get(target, prop) {
+                if(prop === "q") {
+                return target.q;
+                }
+                return (...args) => target(prop, ...args);
+                }
+                });
+                }
+
+                const onLoad = function() {
+                const script = document.createElement("script");
+                script.src = "https://www.chatbase.co/embed.min.js";
+                script.id = "m5HbKEXO67R-bnW5h5c-V";
+                script.domain = "www.chatbase.co";
+                document.body.appendChild(script);
+                };
+
+                if(document.readyState === "complete") {
+                onLoad();
+                } else {
+                window.addEventListener("load", onLoad);
+                }
+                })();
+
+                </script>
+</body>
+
+</html>
