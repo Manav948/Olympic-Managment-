@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accommodation Management</title>
+    <link rel="stylesheet" href="M2.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #151f28;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(to right, #007bff, #00c6ff);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #28a745; /* Base color */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #218838; /* Darker shade on hover */
+            transform: scale(1.05) rotate(2deg); /* Slight rotation for effect */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow effect */
+        }
+
+        button:active {
+            transform: scale(1); /* Reset scale on click */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007bff; /* Table header color */
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9; /* Zebra striping for table rows */
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #007bff; /* Footer color */
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="login/M2.html"></a>
+    <header>
+        <h1>Accommodation Management</h1>
+        <nav>
+            <a href="f1.html">Back to Dashboard</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Allocate a Room</h2>
+            <form id="accommodation-form" onsubmit="handleFormSubmit(event)">
+                <label for="building">Building:</label>
+                <input type="text" id="building" name="building" required>
+                <label for="room">Room:</label>
+                <input type="text" id="room" name="room" required>
+                <label for="occupant-name">Occupant Name:</label>
+                <input type="text" id="occupant-name" name="occupant-name" required>
+                <label for="occupant-type">Occupant Type:</label>
+                <select id="occupant-type" name="occupant-type" required>
+                    <option value="athlete">Athlete</option>
+                    <option value="official">Official</option>
+                </select>
+                <button type="submit">Allocate Room</button>
+                <div id="form-notification"></div>
+            </form>
+        </section>
+
+        <section>
+            <h2>Room Status</h2>
+            <table id="room-status">
+                <thead>
+                    <tr>
+                        <th>Building</th>
+                        <th>Room</th>
+                        <th>Occupant Name</th>
+                        <th>Type</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="room-status-body">
+                    <!-- Dynamic rows added here -->
+                </tbody>
+            </table>
+        </section>
+
+        <section id="notifications">
+            <h2>Notifications</h2>
+            <ul id="notification-list">
+                <!-- Dynamic notifications -->
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Olympic Committee</p>
+    </footer>
+
+    <script src="M2.js"></script>
+    <script>
+      function handleFormSubmit(event) {
+          event.preventDefault();
+          const building = document.getElementById('building').value.trim();
+          const room = document.getElementById('room').value.trim();
+          const occupantName = document.getElementById('occupant-name').value.trim();
+          const occupantType = document.getElementById('occupant-type').value;
+
+          // Add the new room allocation to the table
+          const roomStatusBody = document.getElementById('room-status-body');
+          const newRow = roomStatusBody.insertRow();
+          newRow.innerHTML = `
+              <td>${building}</td>
+              <td>${room}</td>
+              <td>${occupantName}</td>
+              <td>${occupantType}</td>
+              <td><button onclick="removeRow(this)">Remove</button></td>`;
+          
+          // Show notification
+          const notificationList = document.getElementById('notification-list');
+          const notificationItem = document.createElement('li');
+          notificationItem.textContent = `${occupantName} has been allocated to ${building} ${room}.`;
+          notificationList.appendChild(notificationItem);
+
+          // Clear the form
+          document.getElementById('accommodation-form').reset();
+      }
+
+      function removeRow(button) {
+          const row = button.parentNode.parentNode; // Get the row of the button
+          row.parentNode.removeChild(row); // Remove the row from the table
+      }
+    </script>
+
+</body>
+
+</html>
+
