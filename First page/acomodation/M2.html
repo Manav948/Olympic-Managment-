@@ -1,0 +1,67 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accommodation Management</title>
+    <link rel="stylesheet" href="M2.css">
+</head>
+
+<body>
+    <header>
+        <h1>Accommodation Management</h1>
+        <nav>
+            <!-- <a href="../index.html">Back to Dashboard</a> -->
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Allocate a Room</h2>
+            <form id="accommodation-form">
+                <label for="building">Building:</label>
+                <input type="text" id="building" name="building" required>
+                <label for="room">Room:</label>
+                <input type="text" id="room" name="room" required>
+                <label for="occupant-name">Occupant Name:</label>
+                <input type="text" id="occupant-name" name="occupant-name" required>
+                <label for="occupant-type">Occupant Type:</label>
+                <select id="occupant-type" name="occupant-type" required>
+                    <option value="athlete">Athlete</option>
+                    <option value="official">Official</option>
+                </select>
+                <button type="submit">Allocate Room</button>
+            </form>
+        </section>
+        <section>
+            <h2>Room Status</h2>
+            <table id="room-status">
+                <thead>
+                    <tr>
+                        <th>Building</th>
+                        <th>Room</th>
+                        <th>Occupant Name</th>
+                        <th>Type</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamic rows added here -->
+                </tbody>
+            </table>
+        </section>
+        <section id="notifications">
+            <h2>Notifications</h2>
+            <ul id="notification-list">
+                <!-- Dynamic notifications -->
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Olympic Committee</p>
+    </footer>
+    <script src="M2.js"></script>
+</body>
+
+</html>
