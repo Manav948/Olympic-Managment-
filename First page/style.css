@@ -1,0 +1,561 @@
+    /*=============== GOOGLE FONTS ===============*/
+    @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;500;600&display=swap");
+
+    /*=============== VARIABLES CSS ===============*/
+    :root {
+        --header-height: 3.5rem;
+
+        /*========== Colors ==========*/
+        --first-color: hsl(210, 80%, 54%);
+        --first-color-alt: hsl(210, 80%, 50%);
+        --title-color: hsl(210, 24%, 90%);
+        --text-color: hsl(210, 16%, 70%);
+        --white-color: #fff;
+        --body-color: hsl(210, 32%, 4%);
+
+        /*========== Font and typography ==========*/
+        --body-font: "Poppins", sans-serif;
+        --second-font: "Dancing Script", cursive;
+        --biggest-font-size: 2.5rem;
+        --h1-font-size: 1.5rem;
+        --h2-font-size: 1.25rem;
+        --h3-font-size: 1rem;
+        --normal-font-size: .938rem;
+        --small-font-size: .813rem;
+        --smaller-font-size: .75rem;
+
+        /*========== Font weight ==========*/
+        --font-medium: 500;
+        --font-semi-bold: 600;
+        --font-bold: 700;
+    }
+
+    /* Responsive typography */
+    @media screen and (min-width: 1024px) {
+        :root {
+            --biggest-font-size: 5rem;
+            --h1-font-size: 2.25rem;
+            --h2-font-size: 1.5rem;
+            --h3-font-size: 1.25rem;
+            --normal-font-size: 1rem;
+            --small-font-size: .875rem;
+            --smaller-font-size: .813rem;
+        }
+    }
+
+    /*=============== BASE ===============*/
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: var(--body-font);
+        font-size: var(--normal-font-size);
+        background-color: var(--body-color);
+        color: var(--text-color);
+    }
+
+    h1,
+    h2,
+    h3 {
+        color: var(--title-color);
+        font-weight: var(--font-medium);
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+        /* Ensure images cover their container */
+    }
+
+    /*=============== REUSABLE CSS CLASSES ===============*/
+    .container {
+        max-width: 1024px;
+        margin-inline: 1.5rem;
+    }
+
+    .grid {
+        display: grid;
+        gap: 1.5rem;
+    }
+
+    .section {
+        padding-block: 5rem 1rem;
+    }
+
+    .main {
+        overflow: hidden;
+    }
+
+    /*=============== HEADER & NAV ===============*/
+    /* Header Styles */
+    .header {
+        position: fixed;
+        width: 100%;
+        background-color: transparent;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        transition: background .4s;
+    }
+
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0 2rem;
+        /* Adjust padding for spacing */
+    }
+
+    .nav__logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .nav__menu {
+        display: flex;
+        justify-content: center;
+        flex-grow: 1;
+    }
+
+    .nav__list {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .nav__item {
+        list-style: none;
+    }
+
+    .nav__link {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1rem;
+        text-transform: uppercase;
+    }
+
+    .home {
+        position: relative;
+        background: linear-gradient(180deg, hsl(210, 88%, 20%), hsl(210, 70%, 58%));
+        height: 650px;
+        padding-top: 7rem;
+        overflow: hidden;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        justify-content: center; 
+    }
+    
+    .home__title {
+        color: var(--white-color);
+        font-size: var(--biggest-font-size);
+        font-family: var(--second-font);
+        text-align: center;
+        margin-bottom: 1.5rem; 
+    }
+    
+    .home img {
+        max-width: 100%;
+        height: auto;
+        width: 650px; 
+        display: block;
+        margin: 0 auto; 
+    }
+
+    .nav__link.active-link {
+        color: #f1f1f1;
+    }
+    .M1{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Log in button alignment to the right */
+    #loginButton {
+        background-color: #007BFF;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-left: 20px;
+        /* Ensure there is space between navbar and the button */
+    }
+
+    #loginButton:hover {
+        background-color: #0056b3;
+    }
+
+    /* Mobile View */
+    @media screen and (max-width: 767px) {
+        .nav__menu {
+            display: none;
+        }
+
+        .nav__toggle {
+            display: block;
+        }
+
+        #loginButton {
+            margin-left: 0;
+            /* For mobile view, keep button at the bottom */
+            margin-top: 20px;
+        }
+    }
+
+
+    /* Mobile View */
+    @media screen and (max-width: 767px) {
+        .nav__menu {
+            flex-direction: column;
+            gap: 1rem;
+            position: fixed;
+            top: -100%;
+            left: 0;
+            background-color: var(--body-color);
+            width: 100%;
+            padding-block: 3.5rem;
+            transition: top .4s;
+        }
+
+        .nav__toggle {
+            display: block;
+        }
+
+        .nav__close {
+            display: none;
+        }
+
+        /* Adjust login button for mobile */
+        .nav__login {
+            margin-left: 0;
+            text-align: center;
+        }
+    }
+
+    /*=============== HOME ===============*/
+    .home {
+        position: relative;
+        background: linear-gradient(180deg, hsl(210, 88%, 20%), hsl(210, 70%, 58%));
+        height: 650px;
+        padding-top: 7rem;
+        overflow: hidden;
+        background-size: cover;
+        /* Ensure the background fills the space */
+    }
+
+    .home__title {
+        color: var(--white-color);
+        font-size: var(--biggest-font-size);
+        font-family: var(--second-font);
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+
+    .home__image {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        /* Center the image */
+        width: 100%;
+        max-width: 500px;
+        /* Set max-width for responsiveness */
+        height: auto;
+    }
+
+    /*=============== FOOTER ===============*/
+    .footer {
+        overflow: hidden;
+    }
+
+    .footer__container {
+        position: relative;
+        padding-block: 4.5rem 2rem;
+        text-align: center;
+    }
+
+    .footer__logo,
+    .footer__social-link,
+    .footer__copy {
+        color: var(--white-color);
+    }
+
+    .footer__logo {
+        display: inline-block;
+        font-size: var(--h2-font-size);
+        font-family: var(--second-font);
+        margin-bottom: 1rem;
+        color: white;
+    }
+
+    .footer__social {
+        display: flex;
+        justify-content: center;
+        column-gap: 1.5rem;
+    }
+
+    .footer__social-link {
+        font-size: 1.25rem;
+        transition: color .3s;
+    }
+
+    .footer__social-link:hover {
+        color: var(--first-color);
+    }
+
+    .footer__copy {
+        display: block;
+        margin-top: 2rem;
+        font-size: var(--smaller-font-size);
+    }
+
+    /*=============== SCROLL UP ===============*/
+    .scrollup {
+        position: fixed;
+        right: 1rem;
+        bottom: -50%;
+        background-color: var(--white-color);
+        display: inline-flex;
+        padding: .45rem;
+        border-radius: .45rem;
+        font-size: 1rem;
+        color: var(--body-color);
+        z-index: 10;
+        transition: bottom .3s, transform .3s;
+    }
+
+    .scrollup:hover {
+        transform: translateY(-.25rem);
+    }
+
+    /* Show Scroll Up */
+    .show-scroll {
+        bottom: 3rem;
+    }
+
+    /*=============== BREAKPOINTS ===============*/
+    @media screen and (min-width: 576px) {
+        .home__village {
+            width: 360px;
+        }
+
+        .home__pine {
+            width: 330px;
+        }
+    }
+
+    @media screen and (min-width: 767px) {
+
+        .nav__toggle,
+        .nav__close {
+            display: none;
+        }
+
+        .nav__list {
+            flex-direction: row;
+            column-gap: 4rem;
+        }
+
+        .home {
+            height: 800px;
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        .section {
+            padding-block: 7rem 3rem;
+        }
+
+        .home__title {
+            font-size: 4rem;
+        }
+
+        .about__container {
+            grid-template-columns: 500px 335px;
+            align-items: center;
+            column-gap: 6rem;
+        }
+
+        .send__container {
+            grid-template-columns: repeat(3, 220px);
+            column-gap: 7.5rem;
+            padding-top: 3rem;
+        }
+    }
+
+    @media screen and (min-width: 1064px) {
+        .container {
+            margin-inline: auto;
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        .home {
+            height: 980px;
+        }
+
+        .home__title {
+            font-size: var(--biggest-font-size);
+        }
+    }
+
+    @media screen and (min-width: 1700px) {
+        .home {
+            max-width: 1280px;
+            height: 990px;
+            margin-inline: auto;
+        }
+    }
+
+    .athlete-card img {
+        height: 300px;
+        width: 350px;
+    }
+
+    #loginButton {
+        display: flex;
+        margin-left:auto;
+        margin-right: 50px;
+        background-color: transparent;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 5px;
+        padding: 20px;
+    }
+
+    #loginButton:hover {
+        background-color: #0056b3;
+    }
+
+    /* Mobile View */
+    @media screen and (max-width: 767px) {
+        .nav__menu {
+            display: none;
+        }
+
+        .nav__toggle {
+            display: block;
+        }
+
+        #loginButton {
+            margin-left: 0;
+            margin-bottom: 20px;
+
+        }
+    }
+
+    /* Athlete Section */
+    .athletes__container {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .athlete-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--white-color);
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        text-align: center;
+    }
+
+    .athlete-card:hover {
+        transform: translateY(-10px);
+    }
+
+    .athlete-card.left {
+        align-items: flex-start;
+        color: white;
+    }
+
+    .athletes__description{
+        background: transparent;
+        color: white;
+    }
+
+    .athlete-card.left,h3,p{
+        background-color: black;
+    }
+
+    .athlete-card.right {
+        align-items: flex-end;
+    }
+
+    .athlete-card.right,h3,p{
+        background-color: black;
+    }
+
+    .events__container{
+        color: white;
+        background: transparent;
+    }
+    .schedule{
+        color: white;
+        background: transparent;
+    }
+    /* Ensure the athlete images fit well */
+    .athlete__image {
+        width: 100%;
+        max-width: 350px;
+        /* Adjust as per your design */
+        height: auto;
+        object-fit: cover;
+    }
+
+    .athlete__name {
+        font-size: var(--h3-font-size);
+        margin-top: 1rem;
+    }
+
+    .athlete__details {
+        font-size: var(--normal-font-size);
+        margin-top: 0.5rem;
+        color: var(--text-color);
+    }
+
+    /* Mobile view adjustments */
+    @media screen and (max-width: 767px) {
+        .athletes__container {
+            grid-template-columns: 1fr;
+            /* Stack athlete cards vertically */
+        }
+
+        .athlete-card.left,
+        .athlete-card.right {
+            align-items: center;
+        }
+    }
+
+    .result,p{
+        color: white;
+    }
