@@ -6,222 +6,183 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Village Olympic Signup Form</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&family=Poppins:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap');
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
         }
 
         body {
-            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #3a7bd5, #00d2ff);
+            /* Blue to Light Blue Gradient */
             display: flex;
-            align-items: center;
             justify-content: center;
-            background: linear-gradient(180deg, hsl(210, 88%, 20%), hsl(210, 70%, 58%));
+            align-items: center;
+            height: 100vh;
             color: #fff;
-            padding: 20px;
         }
 
-        .container {
-            position: relative;
-            width: 380px;
-            padding: 20px;
-            background: rgba(28, 28, 28, 0.95);
+        /* Form Container */
+        form {
+            background: linear-gradient(to top right, #292e49, #536976);
+            /* Dark to Light Gradient */
+            padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
         }
 
+        /* Header Style */
         h2 {
             text-align: center;
             margin-bottom: 20px;
-            font-size: 26px;
+            color: #fff;
+            font-size: 24px;
             letter-spacing: 1px;
-            color: hsl(210, 80%, 54%);
         }
 
-        form {
+        /* Input Box Styling */
+        .input-box {
             position: relative;
-            z-index: 1;
+            margin-bottom: 20px;
         }
 
-        label {
-            display: block;
-            margin-top: 10px;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: #cccccc;
-        }
-
-        input[type="text"],
-        input[type="date"],
-        input[type="tel"],
-        input[type="number"],
-        select {
+        .input-box input {
             width: 100%;
             padding: 10px;
-            background: transparent;
-            border: none;
-            border-bottom: 2px solid #cccccc;
-            color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #2f3640;
+            color: #fff;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .input-box input:focus {
+            background-color: #1f242d;
+            border-color: #00c6ff;
+            /* Light blue color */
             outline: none;
-            font-size: 16px;
-            margin-bottom: 15px;
-            transition: border-color 0.3s, background-color 0.3s;
         }
 
-        input[type="text"]:focus,
-        input[type="date"]:focus,
-        input[type="tel"]:focus,
-        input[type="number"]:focus,
-        select:focus {
-            border-color: hsl(210, 80%, 54%);
-            background-color: rgba(238, 237, 233, 0.1);
-        }
-
-        select {
-            appearance: none;
-            background: transparent;
-        }
-
-        input[type="submit"] {
-            width: 100%;
+        .input-box span {
+            position: absolute;
+            top: 0;
+            left: 0;
             padding: 10px;
-            background: hsl(210, 80%, 54%);
-            color: #1c1c1c;
+            color: #ccc;
+            pointer-events: none;
+            transition: 0.3s ease;
+        }
+
+        .input-box input:focus+span,
+        .input-box input:valid+span {
+            top: -20px;
+            left: 0;
+            font-size: 12px;
+            color: #00c6ff;
+            /* Light blue color */
+        }
+
+        /* Links Section */
+        .imp-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .imp-links a {
+            color: #00c6ff;
+            /* Light blue color */
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .imp-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Button */
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(to right, #007bff, #00c6ff);
+            /* Gradient for button */
+            color: #fff;
             border: none;
-            border-radius: 25px;
+            border-radius: 4px;
             font-size: 16px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            margin-top: 15px;
+            font-weight: bold;
             cursor: pointer;
-            transition: background 0.3s, color 0.3s;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
-        input[type="submit"]:hover {
-            background: hsl(210, 82%, 38%);
-            color: #ffffff;
+        .btn:hover {
+            background: linear-gradient(to right, #0056b3, #00aaff);
+            /* Darker blue gradient on hover */
+            transform: scale(1.05);
         }
-    </style>
 
+        .btn:active {
+            transform: scale(1);
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 480px) {
+            form {
+                width: 90%;
+                padding: 20px;
+            }
+
+            .input-box input {
+                padding: 12px;
+            }
+
+            .btn {
+                padding: 15px;
+            }
+        }
     </style>
 </head>
 
 <body>
-
     <div class="container">
         <h2>Village Olympic Signup Form</h2>
-        <form action="/submit_signup" method="POST">
-            <label for="name">Full Name:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="fatherName">Father's Name:</label>
-            <input type="text" id="fatherName" name="fatherName" required>
-
-            <label for="mobileNumber">Mobile Number:</label>
-            <input type="number" id="mobileNumber" name="mobileNumber" required>
-
-            <label for="dob">Date of Birth:</label>
-            <input type="date" id="dob" name="dob" required>
-
-            <label for="gender">Gender:</label>
-            <select id="gender" name="gender">
-                <option value="" disabled selected>Select your gender</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-            </select>
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required>
-
-            <label for="number">password</label>
-            <input type="number" id="password" name="password" required>
-
-            <input type="submit" value="Submit" id="submit-button">
+        <form id="registerForm" onsubmit="handleSignup(event)">
+            <div class="input-box">
+                <input type="text" name="username" required="required">
+                <span>Username</span>
+            </div>
+            <div class="input-box">
+                <input type="password" name="password" required="required">
+                <span>Password</span>
+            </div>
+            <div class="imp-links">
+                <a href="#">Forget Password</a>
+            </div>
+            <button type="submit" class="btn">Sign Up</button>
         </form>
     </div>
+
     <script>
-        const API_URL = 'http://localhost:5000/api/auth'; // Adjust URL if needed
-
-        // Handle Registration
-        document.getElementById('registerForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const fullName = document.getElementById('fullName').value;
-            const fathersName = document.getElementById('fathersName').value;
-            const mobile = document.getElementById('mobile').value;
-            const dob = document.getElementById('dob').value;
-            const gender = document.getElementById('gender').value;
-            const email = document.getElementById('regEmail').value;
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('regPassword').value;
-            const messageElem = document.getElementById('regMessage');
-
-            try {
-                const response = await fetch(`${API_URL}/register`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ fullName, fathersName, mobile, dob, gender, email, username, password })
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    messageElem.style.color = 'green';
-                    messageElem.textContent = 'Registration successful!';
-                } else {
-                    messageElem.style.color = 'red';
-                    messageElem.textContent = data.message || 'Registration failed';
-                }
-            } catch (err) {
-                messageElem.style.color = 'red';
-                messageElem.textContent = 'Server error. Please try again later.';
-            }
-        });
-
-        // Handle Login
-        document.getElementById('loginForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-            const messageElem = document.getElementById('loginMessage');
-
-            try {
-                const response = await fetch(`${API_URL}/login`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ email, password })
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    messageElem.style.color = 'green';
-                    messageElem.textContent = 'Login successful! Token: ' + data.token;
-                } else {
-                    messageElem.style.color = 'red';
-                    messageElem.textContent = data.message || 'Login failed';
-                }
-            } catch (err) {
-                messageElem.style.color = 'red';
-                messageElem.textContent = 'Server error. Please try again later.';
-            }
-        });
-        document.querySelector('form').addEventListener('submit', function (event) { 
+        function handleSignup(event) {
             event.preventDefault();
-            window.location.href = 'index.html';
-        });
-    </script>
+            const username = document.querySelector('input[name="username"]').value;
+            const password = document.querySelector('input[name="password"]').value;
 
+            if (username && password) {
+                alert(`Welcome, ${username}! Redirecting to your dashboard...`);
+                
+                window.location.href = "d1.html"; 
+
+            } else {
+                alert("Please fill in all required fields.");
+            }
+        }
+    </script>
 </body>
 
 </html>

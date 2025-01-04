@@ -7,117 +7,147 @@
     <title>Accommodation Management</title>
     <link rel="stylesheet" href="M2.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #151f28;
-            color: #333;
-        }
+        /* M2.css */
 
-        header {
-            background: linear-gradient(to right, #007bff, #00c6ff);
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #1e3c72, #2a5298); /* Gradient background */
+    color: #333;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-        }
+/* Header Styling */
+header {
+    background: linear-gradient(to right, #007bff, #00c6ff); /* Gradient for header */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-        main {
-            padding: 20px;
-        }
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
 
-        section {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            padding: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
 
-        section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-        }
+header nav a:hover {
+    color: #ffd700; /* Golden color on hover */
+}
 
-        h2 {
-            margin-top: 0;
-        }
+/* Main Content */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
+/* Section Styling */
+section {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-        input[type="text"], select {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-bottom: 15px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-        }
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
 
-        button {
-            background-color: #28a745; /* Base color */
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-        }
+h2 {
+    margin-top: 0;
+    color: #0056b3;
+}
 
-        button:hover {
-            background-color: #218838; /* Darker shade on hover */
-            transform: scale(1.05) rotate(2deg); /* Slight rotation for effect */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow effect */
-        }
+/* Form Styling */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
 
-        button:active {
-            transform: scale(1); /* Reset scale on click */
-        }
+input[type="text"], select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+button {
+    background: linear-gradient(to right, #28a745, #218838); /* Green gradient */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-        th, td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
+button:hover {
+    background: linear-gradient(to right, #218838, #196c2e); /* Darker green on hover */
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
 
-        th {
-            background-color: #007bff; /* Table header color */
-            color: white;
-        }
+button:active {
+    transform: scale(1);
+}
 
-        tr:nth-child(even) {
-            background-color: #f9f9f9; /* Zebra striping for table rows */
-        }
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
 
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background-color: #007bff; /* Footer color */
-            color: white;
-        }
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: linear-gradient(to right, #007bff, #0056b3); /* Blue gradient */
+    color: white;
+}
+
+tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 15px 0;
+    background: linear-gradient(to right, #007bff, #00c6ff); /* Gradient for footer */
+    color: white;
+    font-weight: bold;
+}
+
     </style>
 </head>
 
 <body>
-    <a href="login/M2.html"></a>
     <header>
         <h1>Accommodation Management</h1>
         <nav>
-            <a href="f1.html">Back to Dashboard</a>
+            <a href="d1.html">Go to Athlete Dashboard</a> <!-- Navigation link -->
         </nav>
     </header>
     <main>
@@ -164,7 +194,6 @@
                 <!-- Dynamic notifications -->
             </ul>
         </section>
-
     </main>
 
     <footer>
@@ -173,40 +202,62 @@
 
     <script src="M2.js"></script>
     <script>
-      function handleFormSubmit(event) {
-          event.preventDefault();
-          const building = document.getElementById('building').value.trim();
-          const room = document.getElementById('room').value.trim();
-          const occupantName = document.getElementById('occupant-name').value.trim();
-          const occupantType = document.getElementById('occupant-type').value;
+        // Include your existing JavaScript logic here
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const building = document.getElementById('building').value.trim();
+            const room = document.getElementById('room').value.trim();
+            const occupantName = document.getElementById('occupant-name').value.trim();
+            const occupantType = document.getElementById('occupant-type').value;
+        
+            // Add the new room allocation to the table
+            const roomStatusBody = document.getElementById('room-status-body');
+            const newRow = roomStatusBody.insertRow();
+            newRow.innerHTML = `
+                <td>${building}</td>
+                <td>${room}</td>
+                <td>${occupantName}</td>
+                <td>${occupantType}</td>
+                <td><button onclick="removeRow(this)">Remove</button></td>`;
+        
+            // Show notification
+            const notificationList = document.getElementById('notification-list');
+            const notificationItem = document.createElement('li');
+            notificationItem.textContent = `${occupantName} has been allocated to ${building} ${room}.`;
+            notificationList.appendChild(notificationItem);
+        
+            // Send the room allocation data to the server using fetch
+            fetch('/submit_room_allocation', {
+                method: 'POST',
+                body: JSON.stringify({
+                    building,
+                    room,
+                    occupantName,
+                    occupantType
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Room allocation submitted successfully:', data);
+            })
+            .catch(error => {
+                console.error('Error submitting room allocation:', error);
+            });
+        
+            // Clear the form
+            document.getElementById('accommodation-form').reset();
+        }
 
-          // Add the new room allocation to the table
-          const roomStatusBody = document.getElementById('room-status-body');
-          const newRow = roomStatusBody.insertRow();
-          newRow.innerHTML = `
-              <td>${building}</td>
-              <td>${room}</td>
-              <td>${occupantName}</td>
-              <td>${occupantType}</td>
-              <td><button onclick="removeRow(this)">Remove</button></td>`;
-          
-          // Show notification
-          const notificationList = document.getElementById('notification-list');
-          const notificationItem = document.createElement('li');
-          notificationItem.textContent = `${occupantName} has been allocated to ${building} ${room}.`;
-          notificationList.appendChild(notificationItem);
+        function removeRow(button) {
+            button.closest('tr').remove();
+        }
 
-          // Clear the form
-          document.getElementById('accommodation-form').reset();
-      }
 
-      function removeRow(button) {
-          const row = button.parentNode.parentNode; // Get the row of the button
-          row.parentNode.removeChild(row); // Remove the row from the table
-      }
+        
     </script>
-
 </body>
 
 </html>
-

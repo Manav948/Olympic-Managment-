@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athlete Dashboard</title>
+    <style>
+        /* Universal Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            /* Deep blue gradient */
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .dashboard {
+            width: 90%;
+            max-width: 1200px;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            /* Light blue gradient */
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .athlete-profile {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-bottom: 30px;
+        }
+
+        .athlete-card {
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            /* Pink to peach gradient */
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            width: 300px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transform: scale(1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .athlete-card:hover {
+            transform: scale(1.05);
+        }
+
+        .athlete-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .performance-section {
+            text-align: center;
+        }
+
+        .performance-section h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            letter-spacing: 1px;
+        }
+
+        canvas {
+            max-width: 100%;
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard">
+        <!-- Athlete Profile Section -->
+        <section class="athlete-profile">
+            <div class="athlete-card">
+                <img id="athlete-img" src="logo1.webp" alt="Athlete Profile Picture">
+                <h2 id="athlete-name">John Doe</h2>
+                <p>Sport: <span id="athlete-sport">Basketball</span></p>
+                <p>Age: <span id="athlete-age">24</span></p>
+                <p>Height: <span id="athlete-height">6'3"</span></p>
+                <p>Weight: <span id="athlete-weight">190 lbs</span></p>
+            </div>
+        </section>
+
+        <!-- Performance Overview Section -->
+        <section class="performance-section">
+            <h2>Performance Overview</h2>
+            <canvas id="performance-chart"></canvas>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Chart.js Initialization
+        const ctx = document.getElementById('performance-chart').getContext('2d');
+        const performanceChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Speed', 'Strength', 'Stamina', 'Flexibility'],
+                datasets: [{
+                    label: 'Performance Metrics',
+                    data: [80, 90, 70, 85],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(255, 99, 132, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverRadius: 5,
+                }]
+            },
+            options: {
+                scales: {
+                    r: {
+                        angleLines: {
+                            color: '#fff'
+                        },
+                        grid: {
+                            color: 'rgba(255,255,255,0.2)'
+                        },
+                        pointLabels: {
+                            color: '#fff'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#fff'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
