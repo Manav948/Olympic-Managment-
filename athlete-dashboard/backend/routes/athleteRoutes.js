@@ -2,29 +2,25 @@ const express = require('express');
 const Athlete = require('../models/Athlete');
 const router = express.Router();
 
-// Create athlete
+// Create an athlete
 router.post('/create', async (req, res) => {
   const { name, dob, sports, gender, nationality, bio, contact, height, weight, profilePicture } = req.body;
-  
   try {
     const athlete = new Athlete({ name, dob, sports, gender, nationality, bio, contact, height, weight, profilePicture });
     await athlete.save();
-    res.status(201).json({ message: 'Athlete added successfully!' });
+    res.status(201).json({ message: 'Athlete created successfully', athlete });
   } catch (err) {
-    res.status(500).json({ message: 'Error adding athlete' });
+    res.status(500).json({ message: 'Error creating athlete', error: err.message });
   }
 });
 
-// Get athlete info by ID
-router.get('/:id', async (req, res) => {
+// Get all athletes
+router.get('/', async (req, res) => {
   try {
-    const athlete = await Athlete.findById(req.params.id);
-    if (!athlete) {
-      return res.status(404).json({ message: 'Athlete not found' });
-    }
-    res.json(athlete);
+    const athletes = await Athlete.find();
+    res.json(athletes);
   } catch (err) {
-    res.status(500).json({ message: 'Error fetching athlete data' });
+    res.status(500).json({ message: 'Error fetching athletes', error: err.message });
   }
 });
 
